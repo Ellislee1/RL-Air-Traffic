@@ -68,7 +68,7 @@ def init_plugin():
         np.save("routes/sim3.npy", positions)
         positions = np.load('routes/sim3.npy')
     
-    max_ac = 500
+    max_ac = 5000
     active_ac = 0
     total_ac = 0
     # 5  states: lat, lon, alt, route, vs
@@ -253,7 +253,7 @@ def update():
             next_action[id_] = action
         
         previous_action = next_action
-
+    print('Total Success: {} | Total Conflicts: {}'.format(success_counter, collision_counter))
     update_timer += 1
 
 
